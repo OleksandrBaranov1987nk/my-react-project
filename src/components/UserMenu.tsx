@@ -1,4 +1,5 @@
 import { HiUser } from "react-icons/hi";
+import css from "./UserMenu.module.css";
 
 interface UserMenuProps {
   name: string;
@@ -7,7 +8,7 @@ interface UserMenuProps {
 export default function UserMenu({ name }: UserMenuProps) {
   return (
     <div>
-      <HiUser /> {name}
+      <HiUser className={css.icon} size={24} /> {name}
     </div>
   );
 }
