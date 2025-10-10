@@ -1,13 +1,15 @@
-import { HiUser } from "react-icons/hi";
+import OrderForm from "./OrderForm";
 
-interface UserMenuProps {
-  name: string;
-}
+export default function App() {
+  const handleOrder = (data: string) => {
+    console.log("Order received from:", data);
+    // можна зберегти замовлення, викликати API, показати повідомлення тощо
+  };
 
-export default function UserMenu({ name }: UserMenuProps) {
   return (
-    <div>
-      <HiUser /> {name}
-    </div>
+    <>
+      <h1>Place your order</h1>
+      <OrderForm onSubmit={handleOrder} />
+    </>
   );
 }
