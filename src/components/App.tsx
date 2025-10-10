@@ -1,15 +1,28 @@
-import OrderForm from "./OrderForm";
+import axios from "axios";
+import SearchForm from "./SearchForm";
+
+interface Article {
+  objectID: string;
+  title: string;
+  url: string;
+}
+
+interface ArticlesHttpResponse {
+  hits: Article[];
+}
 
 export default function App() {
-  const handleOrder = (data: string) => {
-    console.log("Order received from:", data);
-    // можна зберегти замовлення, викликати API, показати повідомлення тощо
+  const handleSearch = async (topic: string) => {
+    // Виконуємо HTTP-запит
+    const response = await axios.get<ArticlesHttpResponse>(
+      `https://hn.algolia.com/api/v1/search?query=${topic}`
+    );
+    console.log(response.data); // об'єкт з властивістю hits
   };
 
   return (
     <>
-      <h1>Place your order</h1>
-      <OrderForm onSubmit={handleOrder} />
+      <SearchForm onSubmit={handleSearch} />
     </>
   );
 }
