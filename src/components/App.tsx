@@ -1,14 +1,16 @@
 import SearchForm from "./SearchForm";
 import { useState } from "react";
+// import { Article } from "../types/article";
 import ArticleList from "./ArticleList";
 import { fetchArticles } from "../services/articleService";
+import type { Article } from "../types/article";
 
-interface Article {
-  objectID: string;
-  title: string;
-  url: string;
-  author: string;
-}
+// interface Article {
+//   objectID: string;
+//   title: string;
+//   url: string;
+//   author: string;
+// }
 
 export default function App() {
   const [articles, setArticles] = useState<Article[]>([]);

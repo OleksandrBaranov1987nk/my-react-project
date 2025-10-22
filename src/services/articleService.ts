@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Article } from "../types/article";
+import type { Article } from "../types/article";
 
 interface ArticlesHttpResponse {
   hits: Article[];
